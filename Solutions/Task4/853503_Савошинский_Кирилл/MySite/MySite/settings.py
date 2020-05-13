@@ -6,9 +6,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_ROOT = os.path.dirname(__file__)
 sys.path.insert(0, os.path.join(PROJECT_ROOT, 'my_apps'))
 
-IMAGE_DIR = os.path.join(BASE_DIR, 'images')
-IMAGE_ROOT = IMAGE_DIR
-IMAGE_URL = '/images/'
+MEDIA_DIR = os.path.join(BASE_DIR, 'images')
+MEDIA_ROOT = MEDIA_DIR
+MEDIA_URL = '/'
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'carSale/static/')
@@ -20,6 +20,8 @@ EMAIL_HOST_USER = 'savosh28@gmail.com'
 EMAIL_HOST_PASSWORD = '12436587'
 DEFAULT_FROM_EMAIL = 'savosh28@gmail.com'
 DEFAULT_TO_EMAIL = 'savosh28@gmail.com'
+
+DATE_INPUT_FORMATS = ['%Y']
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
@@ -120,17 +122,17 @@ LOGGING = {
             'level': 'INFO',
             'class': 'logging.FileHandler',
             'filename': 'log/info.log',
-            'formatter': 'simpleRe'
+            'formatter': 'myFormatter'
         },
         'file_debug': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'filename': 'log/debug.log',
-            'formatter': 'simpleRe'
+            'formatter': 'myFormatter'
         },
     },
     'formatters': {
-        'simpleRe': {
+        'myFormatter': {
             'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
             'style': '{',
         }
